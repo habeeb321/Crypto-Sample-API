@@ -23,10 +23,14 @@ class HomeScreen extends StatelessWidget {
                         final data = value.homeValue!.data[index];
                         return Column(
                           children: [
+                            Text(data.id),
                             Text(data.title),
+                            Text(data.price.toString()),
                             Text(data.createdAt),
                             Text(data.slug),
                             Text(data.updatedAt),
+                            Text(data.category.id),
+                            Text(data.category.name),
                           ],
                         );
                       },
