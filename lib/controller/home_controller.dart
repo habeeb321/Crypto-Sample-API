@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class HomeController extends ChangeNotifier {
   HomeModel? homeValue;
+  List<HomeModel> homeList = [];
   bool isLoading = false;
 
   void showData() async {

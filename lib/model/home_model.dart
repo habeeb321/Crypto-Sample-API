@@ -1,26 +1,30 @@
 class HomeModel {
-  final String name;
-  final String diameter;
-  final String climate;
-  final String gravity;
-  final String terrain;
-  final String population;
+  List<Data> data;
 
-  HomeModel({
-    required this.name,
-    required this.diameter,
-    required this.climate,
-    required this.gravity,
-    required this.terrain,
-    required this.population,
-  });
+  HomeModel({required this.data});
 
   factory HomeModel.fromJson(Map<String, dynamic> json) => HomeModel(
-        name: json["name"],
-        diameter: json["diameter"],
-        climate: json["climate"],
-        gravity: json["gravity"],
-        terrain: json["terrain"],
-        population: json["population"],
+        data: List<Data>.from(json["data"].map((x) => Data.fromJson(x))),
+      );
+}
+
+class Data {
+  final String title;
+  final String createdAt;
+  final String updatedAt;
+  final String slug;
+
+  Data({
+    required this.title,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.slug,
+  });
+
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
+        title: json["title"],
+        createdAt: json["createdAt"],
+        updatedAt: json["updatedAt"],
+        slug: json["slug"],
       );
 }

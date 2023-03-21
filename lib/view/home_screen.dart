@@ -20,15 +20,13 @@ class HomeScreen extends StatelessWidget {
                   ? const Center(child: CircularProgressIndicator())
                   : ListView.separated(
                       itemBuilder: (BuildContext context, int index) {
-                        final data = value.homeValue;
+                        final data = value.homeValue!.data[index];
                         return Column(
                           children: [
-                            Text(data?.name ?? 'null'),
-                            Text(data?.climate ?? 'null'),
-                            Text(data?.diameter ?? 'null'),
-                            Text(data?.gravity ?? 'null'),
-                            Text(data?.population ?? 'null'),
-                            Text(data?.terrain ?? 'null'),
+                            Text(data.title),
+                            Text(data.createdAt),
+                            Text(data.slug),
+                            Text(data.updatedAt),
                           ],
                         );
                       },

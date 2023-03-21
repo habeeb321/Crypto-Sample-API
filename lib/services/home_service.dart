@@ -7,10 +7,9 @@ class HomeService {
     try {
       Dio dio = Dio();
       Response response =
-          await dio.get("https://swapi.dev/api/planets/3/?format=json");
+          await dio.get("https://api.storerestapi.com/products");
       if (response.statusCode == 200) {
         HomeModel result = HomeModel.fromJson(response.data);
-
         return result;
       }
     } catch (e) {
