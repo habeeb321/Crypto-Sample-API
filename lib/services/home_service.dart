@@ -13,7 +13,7 @@ class HomeService {
             (response.data as List).map((e) => HomeModel.fromJson(e)).toList();
         return result;
       }
-    } catch (e) {
+    } catch (e) { 
       log(e.toString());
     }
     return null;
