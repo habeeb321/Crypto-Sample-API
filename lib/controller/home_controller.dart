@@ -3,7 +3,7 @@ import 'package:crypto_sample_api/services/home_service.dart';
 import 'package:flutter/material.dart';
 
 class HomeController extends ChangeNotifier {
-  List<HomeModel> homeList = [];
+  HomeModel? homeValue;
   bool isLoading = false;
 
   void showData() async {
@@ -11,7 +11,7 @@ class HomeController extends ChangeNotifier {
     notifyListeners();
     await HomeService().fetchApi().then((value) {
       if (value != null) {
-        homeList = value;
+        homeValue = value;
         isLoading = false;
         notifyListeners();
       }

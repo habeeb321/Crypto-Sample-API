@@ -16,25 +16,28 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(child: Center(
         child: Consumer<HomeController>(
           builder: (context, value, child) {
-            return ListView.separated(
-              itemBuilder: (BuildContext context, int index) {
-                final data = value.homeList[index];
-                return Column(
-                  children: [
-                    Text(data.baseAsset),
-                    Text(data.highPrice),
-                    Text(data.lowPrice),
-                    Text(data.openPrice),
-                    Text(data.symbol),
-                  ],
-                );
-              },
-              itemCount: 10,
-              separatorBuilder: (context, index) => const SizedBox(
-                height: 20,
-                child: Divider(thickness: 3),
-              ),
-            );
+            return provider.isLoading == true
+                ? const Center(child: CircularProgressIndicator())
+                : ListView.separated(
+                    itemBuilder: (BuildContext context, int index) {
+                      final data = value.homeValue;
+                      return Column(
+                        children: [
+                          Text(data?.name ?? 'null'),
+                          Text(data?.climate ?? 'null'),
+                          Text(data?.diameter ?? 'null'),
+                          Text(data?.gravity ?? 'null'),
+                          Text(data?.population ?? 'null'),
+                          Text(data?.terrain ?? 'null'),
+                        ],
+                      );
+                    },
+                    itemCount: 10,
+                    separatorBuilder: (context, index) => const SizedBox(
+                      height: 20,
+                      child: Divider(thickness: 3),
+                    ),
+                  );
           },
         ),
       )),

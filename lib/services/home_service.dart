@@ -3,17 +3,17 @@ import 'package:crypto_sample_api/model/home_model.dart';
 import 'package:dio/dio.dart';
 
 class HomeService {
-  Future<List<HomeModel>?> fetchApi() async {
+  Future<HomeModel?> fetchApi() async {
     try {
       Dio dio = Dio();
       Response response =
-          await dio.get("https://api.wazirx.com/sapi/v1/tickers/24hr");
+          await dio.get("https://swapi.dev/api/planets/3/?format=json");
       if (response.statusCode == 200) {
-        List<HomeModel> result =
-            (response.data as List).map((e) => HomeModel.fromJson(e)).toList();
+        HomeModel result = HomeModel.fromJson(response.data);
+
         return result;
       }
-    } catch (e) { 
+    } catch (e) {
       log(e.toString());
     }
     return null;

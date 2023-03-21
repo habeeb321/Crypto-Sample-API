@@ -1,26 +1,26 @@
 class HomeModel {
-  final String symbol;
-  final String baseAsset;
-  final String quoteAsset;
-  final String openPrice;
-  final String lowPrice;
-  final String highPrice;
+  final String name;
+  final String diameter;
+  final String climate;
+  final String gravity;
+  final String terrain;
+  final String population;
 
   HomeModel({
-    required this.symbol,
-    required this.baseAsset,
-    required this.quoteAsset,
-    required this.openPrice,
-    required this.lowPrice,
-    required this.highPrice,
+    required this.name,
+    required this.diameter,
+    required this.climate,
+    required this.gravity,
+    required this.terrain,
+    required this.population,
   });
 
   factory HomeModel.fromJson(Map<String, dynamic> json) => HomeModel(
-        symbol: json["symbol"],
-        baseAsset: json["baseAsset"],
-        quoteAsset: json["quoteAsset"],
-        openPrice: json["openPrice"],
-        lowPrice: json["lowPrice"],
-        highPrice: json["highPrice"],
+        name: json["name"],
+        diameter: json["diameter"],
+        climate: json["climate"],
+        gravity: json["gravity"],
+        terrain: json["terrain"],
+        population: json["population"],
       );
 }
